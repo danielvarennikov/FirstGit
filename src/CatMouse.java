@@ -11,10 +11,17 @@ public static int catLocationX,catLocationY;
 public static boolean matchX,matchY;
 public static boolean upgrade;
 public static int addLocation=2;
+public static String inputUsername,inputPassword;
+public static boolean verified;
+public static String currentPlayer;
+
+
+  
 
     public CatMouse() {
         
         initComponents();
+         
         
         obstacle1.setVisible(false);
         obstacle2.setVisible(false);
@@ -43,11 +50,34 @@ public static int addLocation=2;
         
         again.setVisible(false);
         
-        cat.grabFocus();
-        cat.addKeyListener(this);
-        
-        tutorial();
+      
+        jLabel1.setVisible(true);
+        jLabel4.setVisible(true);
+        jLabel5.setVisible(true);
+        jLabel7.setVisible(true);
+        jLabel8.setVisible(true);
+        jLabel9.setVisible(true);
+        jLabel10.setVisible(true);
+        jLabel11.setVisible(true);
+        jLabel12.setVisible(true);
+        jLabel15.setVisible(true);
+        jLabel16.setVisible(true);
+        mouse.setVisible(true);
+        cat.setVisible(true);
+        obstacle1.setVisible(true);
+        upgrade1.setVisible(true);   
        
+        tutorial();
+        
+        jLabel19.setVisible(false);
+        jLabel20.setVisible(false);
+        retypePassword.setVisible(false);
+        registerAge.setVisible(false);
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        login.setAlwaysOnTop(true);
+         
+        jLabel21.setVisible(false);
     }
 
     
@@ -55,6 +85,28 @@ public static int addLocation=2;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        login = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        userLogin = new javax.swing.JTextField();
+        userPass = new javax.swing.JPasswordField();
+        loginButton = new javax.swing.JButton();
+        register = new javax.swing.JButton();
+        submit = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        registerAge = new javax.swing.JTextField();
+        retypePassword = new javax.swing.JPasswordField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        highscoreDialog = new javax.swing.JDialog();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        highscorePane = new javax.swing.JTextArea();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         mouse = new javax.swing.JLabel();
         cat = new javax.swing.JLabel();
@@ -94,6 +146,112 @@ public static int addLocation=2;
         jLabel16 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+
+        login.setBackground(new java.awt.Color(102, 102, 255));
+        login.setMinimumSize(new java.awt.Dimension(400, 300));
+        login.setResizable(false);
+        login.getContentPane().setLayout(null);
+
+        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setText("Username:");
+        login.getContentPane().add(jLabel17);
+        jLabel17.setBounds(20, 60, 80, 14);
+
+        jLabel18.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel18.setText("Password:");
+        login.getContentPane().add(jLabel18);
+        jLabel18.setBounds(20, 90, 90, 14);
+        login.getContentPane().add(userLogin);
+        userLogin.setBounds(180, 60, 160, 20);
+        login.getContentPane().add(userPass);
+        userPass.setBounds(180, 90, 160, 20);
+
+        loginButton.setText("LOGIN");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+        login.getContentPane().add(loginButton);
+        loginButton.setBounds(140, 200, 100, 23);
+
+        register.setText("REGISTER");
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerActionPerformed(evt);
+            }
+        });
+        login.getContentPane().add(register);
+        register.setBounds(140, 230, 100, 23);
+
+        submit.setText("SUBMIT");
+        submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitActionPerformed(evt);
+            }
+        });
+        login.getContentPane().add(submit);
+        submit.setBounds(140, 230, 100, 23);
+
+        jLabel19.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel19.setText("Retype password:");
+        login.getContentPane().add(jLabel19);
+        jLabel19.setBounds(20, 120, 120, 20);
+
+        jLabel20.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel20.setText("Age:");
+        login.getContentPane().add(jLabel20);
+        jLabel20.setBounds(20, 150, 40, 14);
+        login.getContentPane().add(registerAge);
+        registerAge.setBounds(180, 150, 160, 20);
+        login.getContentPane().add(retypePassword);
+        retypePassword.setBounds(180, 120, 160, 20);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel21.setText("Passwords don't match");
+        login.getContentPane().add(jLabel21);
+        jLabel21.setBounds(110, 180, 170, 15);
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LOGIN.png"))); // NOI18N
+        login.getContentPane().add(jLabel22);
+        jLabel22.setBounds(100, 10, 190, 40);
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login_font.jpg"))); // NOI18N
+        login.getContentPane().add(jLabel23);
+        jLabel23.setBounds(0, 0, 400, 300);
+
+        highscoreDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        highscoreDialog.setAlwaysOnTop(true);
+        highscoreDialog.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        highscoreDialog.setMinimumSize(new java.awt.Dimension(400, 300));
+        highscoreDialog.setPreferredSize(new java.awt.Dimension(400, 300));
+        highscoreDialog.getContentPane().setLayout(null);
+        highscoreDialog.getContentPane().add(filler1);
+        filler1.setBounds(0, 0, 400, 0);
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SCORE-SCREEN.png"))); // NOI18N
+        highscoreDialog.getContentPane().add(jLabel24);
+        jLabel24.setBounds(100, 10, 210, 30);
+
+        highscorePane.setEditable(false);
+        highscorePane.setColumns(20);
+        highscorePane.setRows(5);
+        highscorePane.setPreferredSize(new java.awt.Dimension(300, 300));
+        jScrollPane1.setViewportView(highscorePane);
+
+        highscoreDialog.getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 100, 400, 200);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Username:");
+        highscoreDialog.getContentPane().add(jLabel25);
+        jLabel25.setBounds(80, 70, 70, 15);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Highscore (max level):");
+        highscoreDialog.getContentPane().add(jLabel26);
+        jLabel26.setBounds(190, 70, 240, 14);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 500));
@@ -316,11 +474,72 @@ public static int addLocation=2;
         upgrade=false;
         firstLife();
     }//GEN-LAST:event_againActionPerformed
-    public static void gameOver(){
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+
+        Database database=new Database();
+        database.connect();
+        database.readData();
+        
+        if((database.dataUsers.contains(readInputLogin())&&database.dataPass.contains(readInputPassword()))){
+        currentPlayer=userLogin.getText();
+        System.out.println("Access granted");
+        cat.grabFocus();
+        cat.addKeyListener(this);
+        login.dispose();
+        }else{
+         System.out.println("Access denied");   
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+        retypePassword.setVisible(true);
+        registerAge.setVisible(true);        
+        jLabel19.setVisible(true);
+        jLabel20.setVisible(true);
+        loginButton.setVisible(false);
+        register.setVisible(false);
+        
+    }//GEN-LAST:event_registerActionPerformed
+
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+      if(userPass.getText().equals(retypePassword.getText())){
+          jLabel21.setVisible(false);
+          Database insert=new Database();
+          insert.connect();
+          insert.insertData(userLogin.getText(),userPass.getText(),Integer.parseInt(registerAge.getText()));
+          System.out.println("Username submitted");
+          loginButton.setVisible(true);
+          submit.setVisible(false);
+          register.setVisible(true);
+          jLabel19.setVisible(false);
+          jLabel20.setVisible(false);
+          retypePassword.setVisible(false);
+          registerAge.setVisible(false);
+          jLabel21.setText("Account created");
+          jLabel21.setVisible(true);
+          
+      }else{
+          jLabel21.setVisible(true);
+      }
+    }//GEN-LAST:event_submitActionPerformed
+
+    public String readInputLogin(){
+      return userLogin.getText();
+    }
+    
+    public String readInputPassword(){
+      return userPass.getText();
+    }
+    
+    public static boolean gameOver(){
         if(((mouseLocationX<0)||(mouseLocationX>500)) || ((mouseLocationY<0)||(mouseLocationY>500))){
         jLabel14.setVisible(true);
         again.setVisible(true);;
-       } 
+        highScoreTable();
+        return true;
+       }
+        return false;
     }   
     
     public static void getUpgrade(){
@@ -336,9 +555,45 @@ public static int addLocation=2;
        
     }
     
+    public static void highScoreTable(){
+        highscoreDialog.setLocationRelativeTo(null);
+        
+        Database highS=new Database();
+        highS.connect();
+        highS.countHighscores();
+        
+        String highUsers[]=new String[highS.highUsersList.size()];
+        highUsers=highS.highUsersList.toArray(highUsers);
+          
+        String highLevels[]=new String[highS.highLevelsList.size()];
+        highLevels=highS.highLevelsList.toArray(highLevels);
+        for(int i=0;i<highUsers.length;i++){
+        highscorePane.append("\t"+highUsers[i]+"\t "+"\t"+highLevels[i]+"\n");
+        }
+       
+        highscorePane.selectAll();
+        jLabel24.setVisible(true);
+        highscoreDialog.setVisible(true);
+    }
+    
     public static void tutorial(){
-       obstacle1.setVisible(true);
-       upgrade1.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel4.setVisible(true);
+        jLabel5.setVisible(true);
+        jLabel7.setVisible(true);
+        jLabel8.setVisible(true);
+        jLabel9.setVisible(true);
+        jLabel10.setVisible(true);
+        jLabel11.setVisible(true);
+        jLabel12.setVisible(true);
+        jLabel15.setVisible(true);
+        jLabel16.setVisible(true);
+        mouse.setVisible(true);
+        cat.setVisible(true);
+        obstacle1.setVisible(true);
+        upgrade1.setVisible(true); 
+        
+        
     
      Timer timerT=new Timer();
      TimerTask taskT=new TimerTask(){
@@ -397,7 +652,6 @@ public static int addLocation=2;
         
     }
      
-     
     public static void firstLife(){
         
         jLabel13.setText("Level 1");
@@ -421,7 +675,9 @@ public static int addLocation=2;
         mouse.setLocation(mouseLocationX,mouseLocationY);
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer1.cancel();
+        }
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
         
@@ -448,6 +704,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer1.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -479,6 +736,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer1.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 2);
             secondLife();
             
         }
@@ -526,7 +786,9 @@ public static int addLocation=2;
         }
         
         gameOver(); 
-        
+        if(gameOver()==true){
+            timer2.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -553,6 +815,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer2.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -566,6 +829,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer2.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -579,6 +843,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer2.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -592,6 +857,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer2.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -623,6 +889,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer2.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 3);
             thirdLife();
         }
         }        
@@ -679,7 +948,9 @@ public static int addLocation=2;
         }
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer3.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -705,6 +976,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -718,6 +990,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -731,6 +1004,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -744,6 +1018,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -757,6 +1032,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -770,6 +1046,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -783,6 +1060,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -796,6 +1074,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer3.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -827,6 +1106,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer3.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 4);
             fourthLife();
         }
         }        
@@ -904,7 +1186,9 @@ public static int addLocation=2;
         }
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer4.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -959,6 +1243,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -972,6 +1257,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -985,6 +1271,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -998,6 +1285,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1011,6 +1299,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1024,6 +1313,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1037,6 +1327,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1050,6 +1341,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1063,6 +1355,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1076,6 +1369,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1089,6 +1383,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1102,6 +1397,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1115,6 +1411,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1128,6 +1425,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1141,6 +1439,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1154,6 +1453,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer4.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1185,6 +1485,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer4.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 5);
             fifthLife();
         }
         }        
@@ -1263,7 +1566,9 @@ public static int addLocation=2;
         }
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer5.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -1317,6 +1622,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1330,6 +1636,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1343,6 +1650,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1356,6 +1664,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1369,6 +1678,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1382,6 +1692,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1395,6 +1706,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1408,6 +1720,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1421,6 +1734,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1434,6 +1748,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1447,6 +1762,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1460,6 +1776,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1473,6 +1790,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1486,6 +1804,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1499,6 +1818,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1512,6 +1832,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer5.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1543,6 +1864,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer5.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 6);
             sixthLife();
         }
         }        
@@ -1624,7 +1948,9 @@ public static int addLocation=2;
         }
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer6.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -1692,6 +2018,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1705,6 +2032,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1718,6 +2046,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1731,6 +2060,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1744,6 +2074,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1757,6 +2088,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1770,6 +2102,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1783,6 +2116,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1796,6 +2130,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1809,6 +2144,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1822,6 +2158,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1835,6 +2172,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1848,6 +2186,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1861,6 +2200,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1874,6 +2214,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1887,6 +2228,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer6.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -1918,6 +2260,9 @@ public static int addLocation=2;
             System.out.println("Victory");
             timer6.cancel();
             upgrade=false;
+            Database addH=new Database();
+            addH.connect();
+            addH.addHighscore(currentPlayer, 7);
             seventhLife();
         }
         }        
@@ -2000,7 +2345,9 @@ public static int addLocation=2;
         }
         
         gameOver();
-        
+        if(gameOver()==true){
+            timer7.cancel();
+        }
         mouse.setLocation(mouseLocationX,mouseLocationY);
         catLocationX=cat.getLocation().x;
         catLocationY=cat.getLocation().y;
@@ -2068,6 +2415,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2081,6 +2429,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2094,6 +2443,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2107,6 +2457,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2120,6 +2471,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2133,6 +2485,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2146,6 +2499,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2159,6 +2513,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2172,6 +2527,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2185,6 +2541,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2198,6 +2555,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2211,6 +2569,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2224,6 +2583,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2237,6 +2597,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2250,6 +2611,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2263,6 +2625,7 @@ public static int addLocation=2;
                   jLabel14.setVisible(true);
                   again.setVisible(true);
                   timer7.cancel();
+                  highScoreTable();
                   break;
                }
               }
@@ -2312,6 +2675,7 @@ public static int addLocation=2;
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new CatMouse().setVisible(true);
             }
         });
@@ -2320,6 +2684,9 @@ public static int addLocation=2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton again;
     private static javax.swing.JLabel cat;
+    private javax.swing.Box.Filler filler1;
+    private static javax.swing.JDialog highscoreDialog;
+    public static javax.swing.JTextArea highscorePane;
     private static javax.swing.JLabel jLabel1;
     private static javax.swing.JLabel jLabel10;
     private static javax.swing.JLabel jLabel11;
@@ -2328,7 +2695,17 @@ public static int addLocation=2;
     private static javax.swing.JLabel jLabel14;
     private static javax.swing.JLabel jLabel15;
     private static javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private static javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private static javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private static javax.swing.JLabel jLabel4;
     private static javax.swing.JLabel jLabel5;
@@ -2336,6 +2713,9 @@ public static int addLocation=2;
     private static javax.swing.JLabel jLabel7;
     private static javax.swing.JLabel jLabel8;
     private static javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JDialog login;
+    private javax.swing.JButton loginButton;
     private static javax.swing.JLabel mouse;
     private static javax.swing.JLabel obstacle1;
     private static javax.swing.JLabel obstacle10;
@@ -2353,10 +2733,16 @@ public static int addLocation=2;
     private static javax.swing.JLabel obstacle7;
     private static javax.swing.JLabel obstacle8;
     private static javax.swing.JLabel obstacle9;
+    public javax.swing.JButton register;
+    private javax.swing.JTextField registerAge;
+    private javax.swing.JPasswordField retypePassword;
+    private javax.swing.JButton submit;
     private static javax.swing.JLabel upgrade1;
     private static javax.swing.JLabel upgrade2;
     private static javax.swing.JLabel upgrade3;
     private static javax.swing.JLabel upgrade4;
+    public javax.swing.JTextField userLogin;
+    public javax.swing.JPasswordField userPass;
     // End of variables declaration//GEN-END:variables
 
     @Override
